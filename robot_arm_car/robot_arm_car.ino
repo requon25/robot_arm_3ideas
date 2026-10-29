@@ -1,22 +1,3 @@
-/*
- * ESP32 - WiFi servo control (Access Point mode)
- *
- *  - 4 x 180° servos               -> sliders (input type="range")
- *  - 2 x continuous rotation servos -> 4 buttons (forward, backward, left, right)
- *
- * Required library (Library Manager): "ESP32Servo" by Kevin Harrington
- *
- * Usage:
- *  1) Upload the sketch to the ESP32.
- *  2) Connect to the WiFi network "ESP32-Robot" (password: 12345678).
- *  3) Open the fixed IP configured in AP_IP in your browser
- *     (default: http://192.168.10.1).
- *
- * IMPORTANT: power the servos from an external 5 V supply (4 x AA batteries,
- * BEC, etc.) and connect its GND to the ESP32 GND. Do not power them from the
- * board's 5V/USB pin: six servos draw too much current.
- */
-
 #include <WiFi.h>
 #include <WebServer.h>
 #include <ESP32Servo.h>
@@ -25,12 +6,10 @@
 
 // WiFi network created by the ESP32 (password must be at least 8 characters)
 const char* AP_SSID = "RBot";
-const char* AP_PASS = "abcD1234";
+const char* AP_PASS = "abcd1234";
 
 // Fixed IP of the Access Point (use any address you like).
-// Clients that connect will get an address in the same network
-// (e.g. 192.168.10.2, 192.168.10.3...).
-IPAddress AP_IP(192, 168, 10, 1);       // ESP32 address -> http://192.168.10.1
+IPAddress AP_IP(192, 168, 10, 1);       // ESP32 address 
 IPAddress AP_GATEWAY(192, 168, 10, 1);  // usually the same as the AP address
 IPAddress AP_SUBNET(255, 255, 255, 0);
 
